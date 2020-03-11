@@ -6,17 +6,21 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import com.techelevator.np.dao.ParkDAO;
 import com.techelevator.np.models.DailyForecast;
 import com.techelevator.np.models.Park;
 
+@Component
 public class JDBCParkDAO implements ParkDAO {
 
 	private JdbcTemplate jdbcTemplate;
 
+	@Autowired
 	public JDBCParkDAO(DataSource datasource) {
 		this.jdbcTemplate = new JdbcTemplate(datasource);
 	}
@@ -27,7 +31,7 @@ public class JDBCParkDAO implements ParkDAO {
 
 		String sql = "SELECT parkcode, parkname, state, acreage, elevationinfeet, milesoftrail, "
 				+ "numberofcampsites, climate, yearfounded, annualvisitorcount, inspirationalquote, "
-				+ "parkdescription, entryfee, numberofanimalspecies " + "FROM park ORDER BY parkname";
+				+ "inspirationalquotesource, parkdescription, entryfee, numberofanimalspecies " + "FROM park ORDER BY parkname";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
@@ -47,7 +51,7 @@ public class JDBCParkDAO implements ParkDAO {
 		
 		String sql = "SELECT parkcode, parkname, state, acreage, elevationinfeet, milesoftrail, "
 				+ "numberofcampsites, climate, yearfounded, annualvisitorcount, inspirationalquote, "
-				+ "parkdescription, entryfee, numberofanimalspecies " + "FROM park WHERE parkcode = ?";
+				+ "inspirationalquotesource, parkdescription, entryfee, numberofanimalspecies " + "FROM park WHERE parkcode = ?";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, code);
 		
@@ -93,12 +97,13 @@ public class JDBCParkDAO implements ParkDAO {
 		park.setState(row.getString("state"));
 		park.setAcreage(row.getInt("acreage"));
 		park.setElevation(row.getInt("elevationinfeet"));
-		park.setMilesOfTrail(row.getInt("milesoftrail"));
+		park.setMilesOfTrail(row.getDouble("milesoftrail"));
 		park.setNumberOfCampsites(row.getInt("numberofcampsites"));
 		park.setClimate(row.getString("climate"));
 		park.setYearFounded(row.getInt("yearfounded"));
 		park.setAnnualVisitorCount(row.getInt("annualvisitorcount"));
 		park.setInspirationalQuote(row.getString("inspirationalquote"));
+		park.setQuoteAuthor(row.getString("inspirationalquotesource"));
 		park.setDescription(row.getString("parkdescription"));
 		park.setEntryFee(row.getInt("entryfee"));
 		park.setNumberOfSpecies(row.getInt("numberofanimalspecies"));

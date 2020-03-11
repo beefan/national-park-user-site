@@ -15,6 +15,7 @@ public class Park {
 	private int yearFounded;
 	private int annualVisitorCount;
 	private String inspirationalQuote;
+	private String quoteAuthor;
 	private String description;
 	private int entryFee;
 	private int numberOfSpecies;
@@ -90,6 +91,16 @@ public class Park {
 	public void setInspirationalQuote(String inspirationalQuote) {
 		this.inspirationalQuote = inspirationalQuote;
 	}
+	
+	
+	public String getQuoteAuthor() {
+		return quoteAuthor;
+	}
+
+	public void setQuoteAuthor(String quoteAuthor) {
+		this.quoteAuthor = quoteAuthor;
+	}
+
 	public String getDescription() {
 		return description;
 	}
