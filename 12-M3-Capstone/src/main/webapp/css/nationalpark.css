@@ -5,13 +5,13 @@
 	--neutral-green: #58641d;
 	--light-green: #7b904b;
 	--light: #dbd2e0;
-	--header-font: font-family: 'Actor', sans-serif;
-	--body-font: font-family: 'Candal', sans-serif;
+	--header-font: 'Actor';
+	--body-font: 'Candal';
 }
 
 html {
 	background-color: var(--light);
-	font-family: var(--body-font);
+	font-family: var(--body-font), sans-serif;
 }
 
 html h1 {
