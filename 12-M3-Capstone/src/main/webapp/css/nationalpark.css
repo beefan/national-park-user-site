@@ -5,8 +5,8 @@
 	--neutral-green: #58641d;
 	--light-green: #7b904b;
 	--light: #dbd2e0;
-	--header-font: 'Actor';
-	--body-font: 'Candal';
+	--header-font: "Actor";
+	--body-font: "Candal";
 }
 
 html {
@@ -15,7 +15,7 @@ html {
 }
 
 html h1 {
-	font-family: var(--header-font);
+	font-family: var(--header-font), sans-serif;
 }
 
 img {
