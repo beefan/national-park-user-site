@@ -65,7 +65,7 @@ public class JDBCSurveyDAO implements SurveyDAO {
 	@Override
 	public void save(SurveyEntry survey) {
 		
-		String sql = "INSERT INTO survey_result (surveyid, parkcode, emailaddress, state, activitylevel)"+
+		String sql = "INSERT INTO survey_result (surveyid, parkcode, emailaddress, state, activitylevel) "+
 		"VALUES (DEFAULT, ?, ?, ?, ?)";
 		
 		jdbcTemplate.update(sql, survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel());

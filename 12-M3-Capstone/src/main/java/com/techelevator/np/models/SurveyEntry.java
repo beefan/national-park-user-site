@@ -1,21 +1,29 @@
 package com.techelevator.np.models;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class SurveyEntry {
 
 	private long id;
-	@NotNull(message = "Must Provide a Park Selection")
+	@NotBlank(message = "Must Provide a Park Selection")
 	private String parkCode;
+	
 	@Email(message = "Must Provide a Valid Email")
-	@NotNull(message = "Must Provide an Email")
+	@NotBlank(message = "Must Provide an Email")
 	private String emailAddress;
-	@NotNull(message = "Must Provide a State")
+	
+	@NotBlank( message = "Must Provide a State")
 	private String state;
-	@NotNull(message = "Must Provide an Activity Level")
+	
+	@NotNull(message = " Must Provide an Activity Level")
 	private String activityLevel;
+	
+	private String parkName;
 	
 	public SurveyEntry() {
 		
@@ -50,6 +58,14 @@ public class SurveyEntry {
 	}
 	public void setActivityLevel(String activityLevel) {
 		this.activityLevel = activityLevel;
+	}
+
+	public String getParkName() {
+		return parkName;
+	}
+
+	public void setParkName(String parkName) {
+		this.parkName = parkName;
 	}
 	
 	
