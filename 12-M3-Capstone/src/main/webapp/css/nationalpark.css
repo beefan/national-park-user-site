@@ -1,3 +1,4 @@
+/* Global */
 :root {
 	--darkest-green: #002400;
 	--dark-green: #273b09;
@@ -10,11 +11,26 @@
 
 html {
 	background-color: var(--light);
+	font-family: var(--body-font);
+}
+
+html h1 {
+	font-family: var(--header-font);
 }
 
 img {
 	width: 100%;
 }
+
+/* Home page css - park list */
+.park {
+
+}
+
+.title-state {
+	font-style: italic;
+}
+
 
 .adjust-punct {
 	margin-left: -5px;
