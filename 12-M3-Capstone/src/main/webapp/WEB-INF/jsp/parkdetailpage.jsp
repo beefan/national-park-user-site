@@ -9,6 +9,10 @@
 </h1>
 <img class = "dp-park-detail-img" src="<c:url value="/img/parks/${park.code.toLowerCase()}.jpg" />" />
 <div class = "dp-details">
+<p id = "dp-description">
+	Description:
+	<c:out value="${park.description}" />
+</p>
 <p id = "dp-acerage">
 	Acreage:
 	<c:out value="${park.acreage}" />
@@ -45,10 +49,6 @@
 	Quote Author:
 	<c:out value="${park.quoteAuthor}" />
 </p>
-<p id = "dp-description">
-	Description:
-	<c:out value="${park.description}" />
-</p>
 <p id = "dp-entry-fee">
 	Entry Fee: $
 	<c:out value="${park.entryFee}" />
@@ -63,10 +63,10 @@
 		<div class="forcast">
 			<c:choose>
 				<c:when test="${forecast.day == 1 }">
-					<p>Today</p>
+					<p id = "date">Today</p>
 				</c:when>
 				<c:otherwise>
-					<p>
+					<p id = "date">
 						<fmt:formatDate value="${ dates.get(forecast.day -1)}"
 							pattern="MMM dd" />
 					</p>
@@ -75,16 +75,16 @@
 			<img class="weather-logo"
 				src=" <c:url value = "/img/weather/${forecast.forecast }.png"/>" />
 			<div class="temps">
-				<p>
+				<p id = "high">
 					High
 					<c:out value="${forecast.dailyHigh}" />
 				</p>
-				<p>
+				<p id = "low">
 					Low
 					<c:out value="${forecast.dailyLow}" />
 				</p>
 			</div>
-			<p>
+			<p class = "tips">
 				Trip Tips:
 				<c:set var="totalRecs"
 					value="${ weatherRecs.get(forecast.day).size() }" />

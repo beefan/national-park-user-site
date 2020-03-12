@@ -35,8 +35,9 @@ img {
 
 .adjust-punct {
 	margin-left: -5px;
-<<<<<<< HEAD
 }
+
+/* Detail Page CSS */
 .detail-page{
 	font-family: var(--body-font);
 	background-color: var(--light);
@@ -45,6 +46,7 @@ img {
 .dp-detail-title {
 	font-size: 50px;
 	text-align: center;
+	grid-area:title;
 
 }
 
@@ -52,34 +54,66 @@ img {
 	text-align: right;
 }
 
+
 .dp-park-detail-img{
-	width: 50%;
-	align-items: left;
+	width: 60%;
+	padding-left: 20%;
+	grid-area: detail-park-image;
 }
 
 .dp-details{
+	grid-area: details;
 	display: flex;
 	justify-content: left;
 	flex-direction: column;
 	align-items: left;
-	flex-wrap: wrap;
+
 }
 
-.forecast{
+.five-day-forecast{
+	grid-area: weather;
 	display: grid;
-	grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+	grid-template-rows: 2fr 2fr 2fr 2fr 2fr;
 	grid-template-areas: 
 	"date date date date date"
-	"";
+	"image image image image image"
+	"temps temps temps temps temps"
+	"tips tips tips tips tips";
+	grid-column-gap: 15px;
 }
 .weather-logo{
-	width: 20%;
+	grid-area: image;
+	width: 100%;
+}
+#date{
+	grid-area: date;
+}
+.temps {
+	grid-area: temps;
+}
+.tips{
+	grid-area: tips;
+}
+div.detail-page{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: 
+	"title title"
+	"detail-park-image detail-park-image"
+	"details details"
+	"weather weather";
+	
+
 }
 
 
 
 
 
-=======
-}
->>>>>>> 137ac802d0b5bdd543b838600ebf3855ddaa1369
+
+
+
+
+
+
+
