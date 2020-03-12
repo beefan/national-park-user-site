@@ -8,6 +8,10 @@
 	--body-font: font-family: 'Candal', sans-serif;
 }
 
+html {
+	background-color: var(--light);
+}
+
 img {
 	width: 100%;
 }
@@ -15,10 +19,3 @@ img {
 .adjust-punct {
 	margin-left: -5px;
 }
-<<<<<<< HEAD
-
-html {
-
-}
-=======
->>>>>>> 6847a67d1e9b19f9775b8de5a351abb144fa700a
