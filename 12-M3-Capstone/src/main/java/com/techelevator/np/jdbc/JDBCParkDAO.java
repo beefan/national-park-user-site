@@ -43,6 +43,7 @@ public class JDBCParkDAO implements ParkDAO {
 			park.setFiveDayForecast(getFiveDayForecast(park.getCode()));
 		}
 
+
 		return parks;
 	}
 
@@ -59,7 +60,10 @@ public class JDBCParkDAO implements ParkDAO {
 			return null;
 		}
 		
-		return mapRowToPark(results);
+		Park park = mapRowToPark(results);
+		park.setFiveDayForecast(getFiveDayForecast(park.getCode()));
+		
+		return park;
 	}
 
 	private List<DailyForecast> getFiveDayForecast(String parkCode) {
