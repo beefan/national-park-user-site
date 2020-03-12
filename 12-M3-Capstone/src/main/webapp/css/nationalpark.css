@@ -1,11 +1,21 @@
+/* Global */
 :root {
 	--darkest-green: #002400;
 	--dark-green: #273b09;
 	--neutral-green: #58641d;
 	--light-green: #7b904b;
 	--light: #dbd2e0;
-	--header-font: font-family: 'Actor', sans-serif;
-	--body-font: font-family: 'Candal', sans-serif;
+	--header-font: "Actor";
+	--body-font: "Candal";
+}
+
+html {
+	background-color: var(--light);
+	font-family: var(--body-font), sans-serif;
+}
+
+html h1 {
+	font-family: var(--header-font), sans-serif;
 }
 
 
@@ -13,8 +23,19 @@ img {
 	width: 100%;
 }
 
+/* Home page css - park list */
+.park {
+
+}
+
+.title-state {
+	font-style: italic;
+}
+
+
 .adjust-punct {
 	margin-left: -5px;
+<<<<<<< HEAD
 }
 .detail-page{
 	font-family: var(--body-font);
@@ -59,3 +80,6 @@ img {
 
 
 
+=======
+}
+>>>>>>> 137ac802d0b5bdd543b838600ebf3855ddaa1369

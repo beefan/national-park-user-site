@@ -8,7 +8,7 @@
 	<c:param name="code" value="${park.code}" />
 </c:url>
 <div class="park" >
-	<h3><c:out value="${park.name}" /><span class="title-state" >, <c:out value="${park.state}" /></span></h3>
+	<h1><c:out value="${park.name}" /><span class="title-state" >, <c:out value="${park.state}" /></span></h1>
 	<a href="${parkDetailURL}" >
 		<img src="<c:url value="/img/parks/${park.code.toLowerCase()}.jpg" />" />
 	</a>
