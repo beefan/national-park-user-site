@@ -1,3 +1,13 @@
+:root {
+	--darkest-green: #002400;
+	--dark-green: #273b09;
+	--neutral-green: #58641d;
+	--light-green: #7b904b;
+	--light: #dbd2e0;
+	--header-font: font-family: 'Actor', sans-serif;
+	--body-font: font-family: 'Candal', sans-serif;
+}
+
 img {
 	width: 100%;
 }
@@ -5,7 +15,10 @@ img {
 .adjust-punct {
 	margin-left: -5px;
 }
+<<<<<<< HEAD
 
 html {
 
 }
+=======
+>>>>>>> 6847a67d1e9b19f9775b8de5a351abb144fa700a
