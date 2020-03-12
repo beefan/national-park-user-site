@@ -8,6 +8,7 @@
 	--body-font: font-family: 'Candal', sans-serif;
 }
 
+
 img {
 	width: 100%;
 }
@@ -15,3 +16,46 @@ img {
 .adjust-punct {
 	margin-left: -5px;
 }
+.detail-page{
+	font-family: var(--body-font);
+	background-color: var(--light);
+	
+}
+.dp-detail-title {
+	font-size: 50px;
+	text-align: center;
+
+}
+
+.dp-detail-title .dp-title-state{
+	text-align: right;
+}
+
+.dp-park-detail-img{
+	width: 50%;
+	align-items: left;
+}
+
+.dp-details{
+	display: flex;
+	justify-content: left;
+	flex-direction: column;
+	align-items: left;
+	flex-wrap: wrap;
+}
+
+.forecast{
+	display: grid;
+	grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+	grid-template-areas: 
+	"date date date date date"
+	"";
+}
+.weather-logo{
+	width: 20%;
+}
+
+
+
+
+
