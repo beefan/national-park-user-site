@@ -24,8 +24,39 @@ img {
 }
 
 /* Home page css - park list */
-.park {
+.parks {
+	display: block;
+	white-space: normal;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	padding: 5%;
+}
 
+.park {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	margin: 10px;
+}
+
+.park p {
+	text-align: right;
+	font-size: .8rem;
+	margin-left: 8%;
+	line-height: 1.2rem;
+	color: black;
+}
+
+.park img {
+	width: 300px;
+	border: 6px solid var(--light);
+	border-radius: 3px;
+}
+
+.park img:hover {
+	opacity: 50%;
 }
 
 .title-state {
