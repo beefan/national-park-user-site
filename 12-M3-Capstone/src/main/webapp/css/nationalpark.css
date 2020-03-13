@@ -26,6 +26,12 @@ img {
 	font-style: italic;
 }
 
+/*HELPER IDs FOR SELENIUM TESTING*/
+#homeSeleniumHelper, #detailSeleniumHelper {
+	font-size: 0rem;
+	color:transparent;
+}
+
 /*HEADER*/
 .header{
 	margin-left: 5%;

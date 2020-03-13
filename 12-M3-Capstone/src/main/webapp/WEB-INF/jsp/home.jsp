@@ -7,7 +7,7 @@
 <c:url var="parkDetailURL" value="/parkdetailpage">
 	<c:param name="code" value="${park.code}" />
 </c:url>
-
+<p id="homeSeleniumHelper" >home</p>
 <h1><c:out value="${park.name}" /><span class="italic" >, <c:out value="${park.state}" /></span></h1>
 <div class="park" >
 	<a href="${parkDetailURL}" >

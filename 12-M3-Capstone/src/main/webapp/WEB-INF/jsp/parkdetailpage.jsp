@@ -3,7 +3,7 @@
 <c:set var="pageTitle" value="Home Page" />
 <%@include file="common/header.jsp"%>
 <div class = "detail-page">
-
+<p id="detailSeleniumHelper" >detail</p>
 <h1 class = dp-detail-title>
 	<c:out value="${park.name}" />
 	<span class="dp-title-state">, <c:out value="${park.state}" /></span>
