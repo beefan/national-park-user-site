@@ -3,6 +3,7 @@ package com.techelevator.np.controllers;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class HomeController {
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String showHomePage(ModelMap map) {
 		if (!map.containsAttribute("parks")) {
-			map.put("parks", npWorker.getAllParks());
+			map.addAttribute("parks", npWorker.getAllParks());
 		}
 		return "home";
 	}
@@ -45,9 +46,9 @@ public class HomeController {
 		Park park = npWorker.getParkByParkCode(request.getParameter("code"));
 		Map<Integer, List<String>> weatherRecs = npWorker.getFiveDayWeatherRecommendations(park.getFiveDayForecast());
 	
-		map.put("dates", npWorker.getNextFiveDates());
-		map.put("park", park);
-		map.put("weatherRecs", weatherRecs);
+		map.addAttribute("dates", npWorker.getNextFiveDates());
+		map.addAttribute("park", park);
+		map.addAttribute("weatherRecs", weatherRecs);
 		return "parkdetailpage";
 	}
 
@@ -55,10 +56,10 @@ public class HomeController {
 	public String showSurveyPage(ModelMap map) {
 		SurveyEntry survey = new SurveyEntry();
 		if (!map.containsAttribute("survey")) {
-			map.put("survey", survey);
+			map.addAttribute("survey", survey);
 		}
 		if (!map.containsAttribute("states")) {
-			map.put("states", npWorker.getStateAbbreviations());
+			map.addAttribute("states", npWorker.getStateAbbreviations());
 		}
 		return "survey";
 	}
@@ -71,15 +72,15 @@ public class HomeController {
 		} else {
 			if (!map.containsAttribute("surveyCount")) {
 
-				Map<Park, Integer> surveyCount = new HashMap<Park, Integer>();
+				Map<Park, Integer> surveyCount = new LinkedHashMap<Park, Integer>();
 				npWorker.saveSurvey(survey);
 				for (Entry entry : npWorker.getSurveyCounts().entrySet()) {
 					surveyCount.put(npWorker.getParkByParkCode((String) entry.getKey()), (Integer) entry.getValue());
 
 				}
-				map.put("surveyCount", surveyCount);
+				map.addAttribute("surveyCount", surveyCount);
 				survey.setParkName(npWorker.getParkByParkCode(survey.getParkCode()).getName());
-				map.put("userSurvey", survey);
+				map.addAttribute("userSurvey", survey);
 			}
 			return "redirect:/survey";
 		}
