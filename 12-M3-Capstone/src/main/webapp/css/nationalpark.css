@@ -61,6 +61,20 @@ img {
 	color: var(--light);
 }
 
+footer {
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	padding-left: 5%;
+	padding-bottom: 20px;
+	padding-top: 10px;
+	border-radius: 3px;
+	text-align: center;
+	font-family: var(--header-font), sans-serif;
+	font-weight: bold;
+}
+
 /* HOME PAGE LIST - park list */
 .parks {
 	display: block;
