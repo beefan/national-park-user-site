@@ -18,12 +18,21 @@ html h1 {
 	font-family: var(--header-font), sans-serif;
 }
 
-
 img {
 	width: 100%;
 }
 
-/* Home page css - park list */
+.italic {
+	font-style: italic;
+}
+
+/*HEADER*/
+
+.header img {
+	max-width: 300px;
+}
+
+/* HOME PAGE LIST - park list */
 .parks {
 	display: block;
 	white-space: normal;
@@ -34,35 +43,139 @@ img {
 	padding: 5%;
 }
 
-.park {
-	display: flex;
-	flex-wrap: nowrap;
-	align-items: center;
-	margin: 10px;
+.parks h1 {
+	color: var(--dark-green);
 }
 
-.park p {
-	text-align: right;
+.park {
+	display: grid;
+	grid-template-columns: 2fr 1fr 3fr;
+	grid-template-areas: "pic . desc";
+	padding: 5px;
+}
+
+.park div {
+	grid-area: desc;
 	font-size: .8rem;
-	margin-left: 8%;
 	line-height: 1.2rem;
+	text-align: right;
 	color: black;
 }
 
-.park img {
-	width: 300px;
+.park a, .survey-results a {
+	grid-area: pic;
+}
+
+.park img, .survey-results img{
 	border: 6px solid var(--light);
 	border-radius: 3px;
 }
 
-.park img:hover {
+.park img:hover, .survey-results img:hover {
 	opacity: 50%;
 }
 
-.title-state {
-	font-style: italic;
+
+/* SURVEY PAGE */
+.survey {
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	padding: 5%;
+	text-align: right;
 }
 
+.survey-submit {
+	margin-left: 5%;
+	margin-right: 5%;
+	background-color: var(--light);
+	border-radius: 3px;
+	padding: 5%;
+}
+
+.survey-submit * {
+	padding-bottom: 5px;
+}
+
+.survey label {
+	float: left;
+}
+
+.error {
+	color: red;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: .8rem;
+	display: block;
+}
+
+.survey .radio-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+.survey .radio-buttons label {
+	white-space: wrap;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: .8rem;
+}
+
+.survey-submit h2, .survey-submit p {
+	text-align: center;
+}
+
+.submit {
+	display:flex;
+	justify-content: center;
+}
+
+/*SURVEY RESULTS PAGE*/
+
+.survey-results {
+	display: grid;
+	grid-template-columns: 2fr 2fr 2fr 2fr;
+	grid-template-areas: "title title . user-fav"
+						 "res res res res";
+	white-space: normal;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	text-align: left;
+}
+
+#survey-title {
+	grid-area: title;
+}
+
+#results {
+	grid-area: res;
+}
+
+.survey-results h1 {
+	margin-block-end: 0em;
+	color: var(--dark-green);
+}
+
+.user-results {
+	grid-area: user-fav;
+	max-width: 200px;
+	background-color: var(--light);
+	font-size: .8rem;
+	padding: 1%;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.user-results a {
+	text-decoration: none;
+}
+
+.user-results a:hover {
+	opacity: 50%;
+}
 
 .adjust-punct {
 	margin-left: -5px;
@@ -118,6 +231,30 @@ img {
 	grid-area: image;
 	width: 100%;
 }
+
+.unit {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.unit a {
+	text-decoration: none;
+	color: black;
+}
+
+.unit a:hover {
+	color: orange;
+	font-weight: bold;
+}
+
+.small-temp {
+	font-size: 1rem;
+}
+
+.big-temp {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
 #date{
 	grid-area: date;
 }

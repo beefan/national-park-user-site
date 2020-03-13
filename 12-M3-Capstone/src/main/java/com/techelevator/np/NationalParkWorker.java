@@ -33,6 +33,7 @@ public class NationalParkWorker {
 			"MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY", "OH","OK",
 			"OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI",
 			"WV","WY"};
+	
 	@Autowired
 	private SurveyDAO surveyDao;
 

@@ -8,12 +8,14 @@
 	<c:param name="code" value="${park.code}" />
 </c:url>
 
-<h1><c:out value="${park.name}" /><span class="title-state" >, <c:out value="${park.state}" /></span></h1>
+<h1><c:out value="${park.name}" /><span class="italic" >, <c:out value="${park.state}" /></span></h1>
 <div class="park" >
 	<a href="${parkDetailURL}" >
 		<img src="<c:url value="/img/parks/${park.code.toLowerCase()}.jpg" />" />
 	</a>
+	<div>
 	<p><c:out value="${park.description}" /></p>
+	</div>
 </div>
 </c:forEach>
 </div>

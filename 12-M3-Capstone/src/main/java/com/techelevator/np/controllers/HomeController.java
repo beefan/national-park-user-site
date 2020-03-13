@@ -3,6 +3,7 @@ package com.techelevator.np.controllers;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -35,19 +37,30 @@ public class HomeController {
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String showHomePage(ModelMap map) {
 		if (!map.containsAttribute("parks")) {
-			map.put("parks", npWorker.getAllParks());
+			map.addAttribute("parks", npWorker.getAllParks());
 		}
+		
+		if (!map.containsAttribute("weatherUnit")) {
+			map.addAttribute("weatherUnit", "F");
+		}
+		
 		return "home";
+	}
+	
+	@RequestMapping(path="/changeTemp", method = RequestMethod.GET)
+	public String changeTemp(@RequestParam String unit, @RequestParam String code, ModelMap map) {
+		map.replace("weatherUnit", unit);
+		return "redirect:/parkdetailpage?code="+code;
 	}
 
 	@RequestMapping(path = "/parkdetailpage", method = RequestMethod.GET)
-	public String showParkDetailPage(ModelMap map, HttpServletRequest request) {
-		Park park = npWorker.getParkByParkCode(request.getParameter("code"));
+	public String showParkDetailPage(ModelMap map, @RequestParam String code) {
+		Park park = npWorker.getParkByParkCode(code);
 		Map<Integer, List<String>> weatherRecs = npWorker.getFiveDayWeatherRecommendations(park.getFiveDayForecast());
 	
-		map.put("dates", npWorker.getNextFiveDates());
-		map.put("park", park);
-		map.put("weatherRecs", weatherRecs);
+		map.addAttribute("dates", npWorker.getNextFiveDates());
+		map.addAttribute("park", park);
+		map.addAttribute("weatherRecs", weatherRecs);
 		return "parkdetailpage";
 	}
 
@@ -55,10 +68,10 @@ public class HomeController {
 	public String showSurveyPage(ModelMap map) {
 		SurveyEntry survey = new SurveyEntry();
 		if (!map.containsAttribute("survey")) {
-			map.put("survey", survey);
+			map.addAttribute("survey", survey);
 		}
 		if (!map.containsAttribute("states")) {
-			map.put("states", npWorker.getStateAbbreviations());
+			map.addAttribute("states", npWorker.getStateAbbreviations());
 		}
 		return "survey";
 	}
@@ -71,15 +84,15 @@ public class HomeController {
 		} else {
 			if (!map.containsAttribute("surveyCount")) {
 
-				Map<Park, Integer> surveyCount = new HashMap<Park, Integer>();
+				Map<Park, Integer> surveyCount = new LinkedHashMap<Park, Integer>();
 				npWorker.saveSurvey(survey);
 				for (Entry entry : npWorker.getSurveyCounts().entrySet()) {
 					surveyCount.put(npWorker.getParkByParkCode((String) entry.getKey()), (Integer) entry.getValue());
 
 				}
-				map.put("surveyCount", surveyCount);
+				map.addAttribute("surveyCount", surveyCount);
 				survey.setParkName(npWorker.getParkByParkCode(survey.getParkCode()).getName());
-				map.put("userSurvey", survey);
+				map.addAttribute("userSurvey", survey);
 			}
 			return "redirect:/survey";
 		}

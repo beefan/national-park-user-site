@@ -17,5 +17,5 @@
 			<a href="<c:url value="/survey" />" >Survey</a>
 		</nav>
     </div>
-
+<hr/>
     <div class="main-section">

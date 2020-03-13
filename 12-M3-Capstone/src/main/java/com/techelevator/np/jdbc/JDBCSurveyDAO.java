@@ -2,6 +2,7 @@ package com.techelevator.np.jdbc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,7 +48,7 @@ public class JDBCSurveyDAO implements SurveyDAO {
 	@Override
 	public Map<String, Integer> getSurveyCounts() {
 
-		Map<String, Integer> surveyCounts = new HashMap<String, Integer>();
+		Map<String, Integer> surveyCounts = new LinkedHashMap<String, Integer>();
 
 		String sql = "SELECT count(s.parkcode), s.parkcode " + "FROM survey_result AS s "
 				+ "JOIN park ON park.parkcode = s.parkcode " + "GROUP BY s.parkcode, park.parkname "
