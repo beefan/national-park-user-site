@@ -26,6 +26,12 @@ img {
 	font-style: italic;
 }
 
+/*HEADER*/
+
+.header img {
+	max-width: 300px;
+}
+
 /* HOME PAGE LIST - park list */
 .parks {
 	display: block;
