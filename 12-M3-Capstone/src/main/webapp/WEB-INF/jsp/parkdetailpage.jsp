@@ -3,10 +3,12 @@
 <c:set var="pageTitle" value="Home Page" />
 <%@include file="common/header.jsp"%>
 <div class = "detail-page">
+
 <h1 class = dp-detail-title>
 	<c:out value="${park.name}" />
 	<span class="dp-title-state">, <c:out value="${park.state}" /></span>
 </h1>
+
 <img class = "dp-park-detail-img" src="<c:url value="/img/parks/${park.code.toLowerCase()}.jpg" />" />
 <div class = "dp-details">
 <p id = "dp-description">
@@ -73,7 +75,7 @@
 				</c:otherwise>
 			</c:choose>
 			<img class="weather-logo"
-				src=" <c:url value = "/img/weather/${forecast.forecast }.png"/>" />
+				src=" <c:url value = "/img/weather/${forecast.forecast}.png"/>" />
 			<div class="temps">
 				<c:set var="high" value="${forecast.dailyHigh}" />
 				<c:set var="low" value="${forecast.dailyLow}" />
