@@ -3,7 +3,7 @@
 <hr />
         <footer>
        		<jsp:useBean id="now" class="java.util.Date" />
-            <p>&copy; <fmt:formatDate value="${now}" pattern="yyyy"/></p>
+            <p>A & B Consulting Co. &copy; <fmt:formatDate value="${now}" pattern="yyyy"/></p>
         </footer>
     </div>
 </body>

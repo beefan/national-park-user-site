@@ -89,7 +89,7 @@
 						<c:when test="${weatherUnit.equals(\"C\")}" >
 							<c:set var="high" value="${ (forecast.dailyHigh - 32) * 5/9.}" />
 							<c:set var="low" value="${ (forecast.dailyLow -32) * 5/9.}" />
-							<p> <a href="${changeTempURL}"><span class="small-temp">F</span></a> / <span class="big-temp">C</span></p>
+							<p> <span class="big-temp">C</span> / <a href="${changeTempURL}"><span class="small-temp">F</span></a></p>
 						</c:when>
 						<c:otherwise>
 							<c:url var="changeTempURL" value="/changeTemp" >

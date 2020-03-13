@@ -27,9 +27,52 @@ img {
 }
 
 /*HEADER*/
+.header{
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	padding-left: 5%;
+	padding-bottom: 20px;
+	padding-top: 10px;
+	border-radius: 3px;
+}
 
 .header img {
 	max-width: 300px;
+	border: 5px solid var(--dark-green);
+	border-radius: 5px;
+	margin-bottom: 20px;
+	background-color: var(--light);
+}
+
+.header a {
+	background-color: var(--light);
+	padding: 10px;
+	text-decoration: none;
+	color: var(--dark-green);
+	border-radius: 3px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.header a:hover {
+	background-color: var(--dark-green);
+	color: var(--light);
+}
+
+footer {
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	padding-left: 5%;
+	padding-bottom: 20px;
+	padding-top: 10px;
+	border-radius: 3px;
+	text-align: center;
+	font-family: var(--header-font), sans-serif;
+	font-weight: bold;
 }
 
 /* HOME PAGE LIST - park list */
@@ -41,6 +84,7 @@ img {
 	color: var(--darkest-green);
 	background-color: var(--light-green);
 	padding: 5%;
+	border-radius: 3px;
 }
 
 .parks h1 {
@@ -85,6 +129,7 @@ img {
 	background-color: var(--light-green);
 	padding: 5%;
 	text-align: right;
+	border-radius: 3px;
 }
 
 .survey-submit {
@@ -144,6 +189,7 @@ img {
 	color: var(--darkest-green);
 	background-color: var(--light-green);
 	text-align: left;
+	border-radius: 3px;
 }
 
 #survey-title {
