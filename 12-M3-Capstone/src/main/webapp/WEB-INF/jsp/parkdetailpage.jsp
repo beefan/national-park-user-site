@@ -12,51 +12,51 @@
 <img class = "dp-park-detail-img" src="<c:url value="/img/parks/${park.code.toLowerCase()}.jpg" />" />
 <div class = "dp-details">
 <p id = "dp-description">
-	Description:
+	<h4>Description:</h4>
 	<c:out value="${park.description}" />
 </p>
 <p id = "dp-acerage">
-	Acreage:
+	<h4>Acreage:</h4>
 	<c:out value="${park.acreage}" />
 </p>
 <p id = "dp-elevation">
-	Elevation:
+	<h4>Elevation:</h4>
 	<c:out value="${park.elevation}" />
 </p>
 <p id = "dp-miles">
-	Miles Of Trail:
+	<h4>Miles Of Trail:</h4>
 	<c:out value="${park.milesOfTrail}" />
 </p>
 <p id = "dp-number-of-campsites" >
-	Number Of Campsites:
+	<h4>Number Of Campsites:</h4>
 	<c:out value="${park.numberOfCampsites}" />
 </p>
 <p id = "dp-climate">
-	Climate:
+	<h4>Climate:</h4>
 	<c:out value="${park.climate}" />
 </p>
 <p id = "dp-year-founded">
-	Year Founded:
+	<h4>Year Founded:</h4>
 	<c:out value="${park.yearFounded}" />
 </p>
 <p id = "dp-visitor-count">
-	Annual Visitor Count:
+	<h4>Annual Visitor Count:</h4>
 	<c:out value="${park.annualVisitorCount}" />
 </p>
 <p id = "dp-quote">
-	Inspirational Quote:
+	<h4>Inspirational Quote:</h4>
 	<c:out value="${park.inspirationalQuote}" />
 </p>
 <p id = "dp-quote-author">
-	Quote Author:
+	<h4>Quote Author:</h4>
 	<c:out value="${park.quoteAuthor}" />
 </p>
 <p id = "dp-entry-fee">
-	Entry Fee: $
+	<h4>Entry Fee: $</h4>
 	<c:out value="${park.entryFee}" />
 </p>
 <p id = "dp-species">
-	Number Of Species:
+	<h4>Number Of Species:</h4>
 	<c:out value="${park.numberOfSpecies}" />
 </p>
 </div>
