@@ -76,12 +76,12 @@ public class NationalParkWorker {
 		return states;
 	}
 	
-	public List<Date> getNextFiveDates(){
-		List<Date> dateList = new LinkedList<Date>();
-		dateList.add(new Date());
+	public List<LocalDate> getNextFiveDates(){
+		List<LocalDate> dateList = new LinkedList<LocalDate>();
+		dateList.add(LocalDate.now());
 		for(int i = 1; i < 5; i++) {
 			
-			dateList.add(new Date(LocalDate.now().plusDays(i).toEpochDay() * (1000 * 60 * 60 * 24)) );
+			dateList.add(LocalDate.now().plusDays(i));
 		}
 		return dateList;
 	}
