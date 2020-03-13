@@ -87,7 +87,7 @@ public class NationalParkWorker {
 	}
 	
 	private List<String> getWeatherRecommendation(DailyForecast forecast) {
-		List<String> weatherRec = new ArrayList<String>();
+		List<String> weatherRec = new LinkedList<String>();
 
 		switch (forecast.getForecast()) {
 		case "snow":
@@ -99,7 +99,7 @@ public class NationalParkWorker {
 		case "thunderstorms":
 			weatherRec.add(THUNDER_REC);
 			break;
-		case "sunnny":
+		case "sunny":
 			weatherRec.add(SUN_REC);
 			break;
 		}

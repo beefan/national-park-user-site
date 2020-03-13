@@ -92,7 +92,6 @@ public class Park {
 		this.inspirationalQuote = inspirationalQuote;
 	}
 	
-	
 	public String getQuoteAuthor() {
 		return quoteAuthor;
 	}
