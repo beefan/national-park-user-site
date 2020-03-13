@@ -129,6 +129,7 @@ footer {
 	background-color: var(--light-green);
 	padding: 5%;
 	text-align: right;
+	border-radius: 3px;
 }
 
 .survey-submit {
@@ -188,6 +189,7 @@ footer {
 	color: var(--darkest-green);
 	background-color: var(--light-green);
 	text-align: left;
+	border-radius: 3px;
 }
 
 #survey-title {
