@@ -253,6 +253,7 @@ footer {
 	grid-area: detail-park-image;
 	border: medium solid var(--light-green);
 	border-radius: 3px;
+	box-shadow: 10px 10px 5px grey;
 
 	
 }
@@ -262,10 +263,22 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: left;
-	white-space: initial;
+	flex-wrap: nowrap;
+	margin: 10px;
 }
-.dp-details p h4{
-	font-weight: bolder;
+.dp-details h4{
+	color: var(--dark-green);
+	animation-name: h4;
+	animation-duration: initial;
+}
+@keyframes h4 {
+	from {color:var(--light)}
+	to {color: var(--darkest-green);}
+  }
+
+
+div.dp-details p{
+	color: var(--neutral-green)
 }
 
 .five-day-forecast{
@@ -321,7 +334,14 @@ footer {
 }
 .tips{
 	grid-area: tips;
+	font-style: italic;
+	animation-name: tips;
+	animation-duration: 120s;
 }
+@keyframes tips {
+	from {color:var(--light)}
+	to {color: var(--darkest-green);}
+  }
 div.detail-page{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr ;
