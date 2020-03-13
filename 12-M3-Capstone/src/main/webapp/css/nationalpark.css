@@ -229,6 +229,30 @@ img {
 	grid-area: image;
 	width: 100%;
 }
+
+.unit {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.unit a {
+	text-decoration: none;
+	color: black;
+}
+
+.unit a:hover {
+	color: orange;
+	font-weight: bold;
+}
+
+.small-temp {
+	font-size: 1rem;
+}
+
+.big-temp {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
 #date{
 	grid-area: date;
 }

@@ -19,6 +19,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -38,12 +39,23 @@ public class HomeController {
 		if (!map.containsAttribute("parks")) {
 			map.addAttribute("parks", npWorker.getAllParks());
 		}
+		
+		if (!map.containsAttribute("weatherUnit")) {
+			map.addAttribute("weatherUnit", "F");
+		}
+		
 		return "home";
+	}
+	
+	@RequestMapping(path="/changeTemp", method = RequestMethod.GET)
+	public String changeTemp(@RequestParam String unit, @RequestParam String code, ModelMap map) {
+		map.replace("weatherUnit", unit);
+		return "redirect:/parkdetailpage?code="+code;
 	}
 
 	@RequestMapping(path = "/parkdetailpage", method = RequestMethod.GET)
-	public String showParkDetailPage(ModelMap map, HttpServletRequest request) {
-		Park park = npWorker.getParkByParkCode(request.getParameter("code"));
+	public String showParkDetailPage(ModelMap map, @RequestParam String code) {
+		Park park = npWorker.getParkByParkCode(code);
 		Map<Integer, List<String>> weatherRecs = npWorker.getFiveDayWeatherRecommendations(park.getFiveDayForecast());
 	
 		map.addAttribute("dates", npWorker.getNextFiveDates());

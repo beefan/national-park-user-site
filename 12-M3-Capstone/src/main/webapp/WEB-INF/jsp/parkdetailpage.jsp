@@ -75,14 +75,38 @@
 			<img class="weather-logo"
 				src=" <c:url value = "/img/weather/${forecast.forecast }.png"/>" />
 			<div class="temps">
+				<c:set var="high" value="${forecast.dailyHigh}" />
+				<c:set var="low" value="${forecast.dailyLow}" />
+				<c:url var="changeTempURL" value="/changeTemp" >
+					<c:param name="unit" value="F" />
+					<c:param name="code" value="${param.code}" />
+				</c:url>
+				
+				<div class="unit">
+					<c:choose>
+						<c:when test="${weatherUnit.equals(\"C\")}" >
+							<c:set var="high" value="${ (forecast.dailyHigh - 32) * 5/9.}" />
+							<c:set var="low" value="${ (forecast.dailyLow -32) * 5/9.}" />
+							<p> <a href="${changeTempURL}"><span class="small-temp">F</span></a> / <span class="big-temp">C</span></p>
+						</c:when>
+						<c:otherwise>
+							<c:url var="changeTempURL" value="/changeTemp" >
+								<c:param name="unit" value="C" />
+								<c:param name="code" value="${param.code}" />
+							</c:url>
+							<p> <span class="big-temp">F</span> / <a href="${changeTempURL}"><span class="small-temp">C</span></a></p>
+						</c:otherwise>
+					</c:choose>
+				</div>
 				<p id = "high">
 					High
-					<c:out value="${forecast.dailyHigh}" />
+					<fmt:formatNumber value="${ high }" maxFractionDigits="2" />
 				</p>
 				<p id = "low">
 					Low
-					<c:out value="${forecast.dailyLow}" />
+					<fmt:formatNumber value="${ low }" maxFractionDigits="2" />
 				</p>
+			
 			</div>
 			<p class = "tips">
 				Trip Tips:
