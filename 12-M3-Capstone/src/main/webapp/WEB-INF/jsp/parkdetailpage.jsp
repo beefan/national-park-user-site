@@ -69,8 +69,8 @@
 				</c:when>
 				<c:otherwise>
 					<p id = "date">
-						<fmt:formatDate value="${ dates.get(forecast.day -1)}"
-							pattern="MMM dd" />
+						<fmt:parseDate value="${ dates.get(forecast.day -1) }" pattern="yyyy-MM-dd" var="parsedDateTime" type="date" />
+						<fmt:formatDate pattern="MMM dd" value="${ parsedDateTime }" />
 					</p>
 				</c:otherwise>
 			</c:choose>
