@@ -26,25 +26,6 @@ public class JDBCSurveyDAO implements SurveyDAO {
 		this.jdbcTemplate = new JdbcTemplate(datasource);
 	}
 
-	// TODO delete?
-	// is this even useful?
-	@Override
-	public List<SurveyEntry> getAllSurveys() {
-		List<SurveyEntry> surveys = new ArrayList<SurveyEntry>();
-
-		String sql = "SELECT s.surveyid, s.parkcode, s.emailaddress, s.state, s.activitylevel "
-				+ "FROM survey_result s " + "JOIN ( SELECT parkcode, COUNT(*) AS cnt " + "       FROM survey_result "
-				+ "       GROUP BY parkcode " + "     ) s2 ON ( s2.parkcode = s.parkcode ) " + "ORDER BY s2.cnt DESC";
-
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-
-		while (results.next()) {
-			surveys.add(mapRowToSurvey(results));
-		}
-
-		return surveys;
-	}
-
 	@Override
 	public Map<String, Integer> getSurveyCounts() {
 
