@@ -251,41 +251,84 @@ footer {
 .dp-detail-title .dp-title-state{
 	text-align: right;
 }
-
-
-.dp-park-detail-img{
+.dp-park-detail-img {
 	width: 100%;
 	justify-content: center;
 	grid-area: detail-park-image;
 	border: medium solid var(--light-green);
 	border-radius: 3px;
 	box-shadow: 10px 10px 5px grey;
-
-	
+}
+div.detail-page {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr ;
+	grid-template-areas: 
+	"title title title"
+	". detail-park-image ."
+	"details details details"
+	"weather weather weather";
 }
 
+/* PARK DETAILS */
 .dp-details{
 	grid-area: details;
-	display: flex;
-	flex-direction: column;
-	align-items: left;
-	flex-wrap: nowrap;
-	margin: 10px;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-areas:
+	"description description description"
+	"inspiration inspiration inspiration"
+	"author . ."
+	"acreage elevation miles"
+	"campsites climate year-founded"
+	"visitor entry-fee species";
+	grid-gap: 10px;
+}
+#dp-description{
+	grid-area: description;
+	display: block;
+	==]-kj09h8g7f6d5432
+}
+#dp-acreage{
+	grid-area: acreage;
+}
+#dp-elevation{
+	grid-area: elevation;
+}
+#dp-miles{
+	grid-area: miles;
+}
+#dp-number-of-campsites{
+	grid-area: campsites;
+}
+#dp-climate{
+	grid-area: climate;
+}
+#dp-year-founded{
+	grid-area: year-founded;
+}
+#dp-visitor-count{
+	grid-area: visitor;
+}
+#dp-quote{
+	grid-area: inspiration;
+}
+#dp-quote-author{
+	grid-area: author;
+}
+#dp-entry-fee{
+	grid-area: entry-fee;
+}
+#dp-species{
+	grid-area: species;
 }
 .dp-details h4{
 	color: var(--dark-green);
-	animation-name: h4;
-	animation-duration: initial;
 }
-@keyframes h4 {
-	from {color:var(--light)}
-	to {color: var(--darkest-green);}
-  }
-
-
 div.dp-details p{
 	color: var(--neutral-green)
 }
+
+/* WEATHER */
 
 .five-day-forecast{
 	grid-area: weather;
@@ -296,7 +339,7 @@ div.dp-details p{
 	"image image image image image"
 	"temps temps temps temps temps"
 	"tips tips tips tips tips";
-	grid-gap: 10px;
+	grid-gap: 20px;
 	border: thick solid var(--neutral-green);
 	background: var(--light-green);
 	border-radius: 2%;
@@ -305,8 +348,8 @@ div.dp-details p{
 }
 .weather-logo{
 	grid-area: image;
-	max-width: 512;
-	height: auto;
+	max-width: 100px;
+	height: 100px;
 }
 
 .unit {
@@ -341,30 +384,9 @@ div.dp-details p{
 .tips{
 	grid-area: tips;
 	font-style: italic;
-	animation-name: tips;
-	animation-duration: 120s;
+	color: var(--light);
 }
-@keyframes tips {
-	from {color:var(--light)}
-	to {color: var(--darkest-green);}
-  }
-div.detail-page{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr ;
-	grid-template-areas: 
-	"title  title title"
-	". detail-park-image ."
-	"details details details"
-	"weather weather weather";
-}
-.detail-header{
-	display: block;
-	white-space: normal;
-	margin-left: 2.5%;
-	margin-right: 2.5%;
-	color: var(--darkest-green);
-	background-color: var(--light-green);
-}
+
 
 
 
