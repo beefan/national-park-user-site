@@ -258,6 +258,7 @@ footer {
 	border: medium solid var(--light-green);
 	border-radius: 3px;
 	box-shadow: 10px 10px 5px grey;
+	margin: 20px;
 }
 div.detail-page {
 	display: grid;
@@ -286,7 +287,15 @@ div.detail-page {
 #dp-description{
 	grid-area: description;
 	display: block;
-	==]-kj09h8g7f6d5432
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	
 }
 #dp-acreage{
 	grid-area: acreage;
@@ -322,10 +331,10 @@ div.detail-page {
 	grid-area: species;
 }
 .dp-details h4{
-	color: var(--dark-green);
+	color: var(--darkest-green);
 }
-div.dp-details p{
-	color: var(--neutral-green)
+.dp-details p{
+	color: var(--dark-green)
 }
 
 /* WEATHER */
