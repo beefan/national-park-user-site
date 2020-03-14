@@ -277,11 +277,10 @@ div.detail-page {
 	grid-template-columns: auto;
 	grid-template-areas:
 	"description description description"
-	"inspiration inspiration ."
-	"author . . "
-	"acreage elevation miles"
-	"campsites climate year-founded"
-	"visitor entry-fee species";
+	"inspiration inspiration inspiration "
+	"acreage elevation miles "
+	"campsites climate visitor "
+	"entry-fee species year-founded";
 	grid-gap: 10px;
 }
 #dp-description{
@@ -300,36 +299,134 @@ div.detail-page {
 }
 #dp-acreage{
 	grid-area: acreage;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
 #dp-elevation{
 	grid-area: elevation;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
 #dp-miles{
 	grid-area: miles;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
 #dp-number-of-campsites{
 	grid-area: campsites;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
 #dp-climate{
 	grid-area: climate;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
 #dp-year-founded{
 	grid-area: year-founded;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
 #dp-visitor-count{
 	grid-area: visitor;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
-#dp-quote{
+#inspiration{
 	grid-area: inspiration;
-}
-#dp-quote-author{
-	grid-area: author;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
+
 }
 #dp-entry-fee{
 	grid-area: entry-fee;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
 #dp-species{
 	grid-area: species;
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: var(--darkest-green);
+	background-color: var(--light-green);
+	border: thick solid var(--neutral-green);
+	background: var(--light-green);
+	border-radius: 5px;
+	color: var(--darkest-green);
+	text-align: center;
 }
 .dp-details h4{
 	color: var(--darkest-green);
@@ -339,7 +436,6 @@ div.detail-page {
 }
 
 /* WEATHER */
-
 .five-day-forecast{
 	grid-area: weather;
 	display: grid;
@@ -352,7 +448,7 @@ div.detail-page {
 	grid-gap: 20px;
 	border: thick solid var(--neutral-green);
 	background: var(--light-green);
-	border-radius: 2%;
+	border-radius: 5px;
 	color: var(--darkest-green);
 	margin-top: 20px;
 	

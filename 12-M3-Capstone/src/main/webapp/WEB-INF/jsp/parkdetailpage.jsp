@@ -60,6 +60,7 @@
 				<c:out value="${park.annualVisitorCount}" />
 			</p>
 		</div>
+		<div id = "inspiration">
 		<div id="dp-quote">
 			<h4>Inspirational Quote:</h4>
 			<p>
@@ -71,6 +72,7 @@
 			<p>
 				<c:out value="${park.quoteAuthor}" />
 			</p>
+		</div>
 		</div>
 		<div id="dp-entry-fee">
 			<h4>Entry Fee: </h4>
