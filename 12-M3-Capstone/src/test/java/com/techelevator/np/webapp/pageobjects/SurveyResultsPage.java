@@ -2,6 +2,7 @@ package com.techelevator.np.webapp.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class SurveyResultsPage {
 
@@ -11,7 +12,5 @@ public class SurveyResultsPage {
 		this.webDriver = webDriver;
 	}
 	
-	public String getSurveyResultsIndicator() {
-		return webDriver.findElement(By.id("survey-title")).getText();
-	}
+
 }

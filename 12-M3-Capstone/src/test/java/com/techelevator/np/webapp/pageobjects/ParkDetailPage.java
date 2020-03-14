@@ -2,6 +2,7 @@ package com.techelevator.np.webapp.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ParkDetailPage {
 	private WebDriver webDriver;
@@ -12,5 +13,15 @@ public class ParkDetailPage {
 	
 	public String getDetailPageIndicator() {
 		return webDriver.findElement(By.id("detailSeleniumHelper")).getText();
+	}
+	public SurveyPage clickSurveyNavButton() {
+		WebElement surveyNav = webDriver.findElement(
+				By.cssSelector("body > div.header > nav > a:nth-child(2)"));
+		surveyNav.click();
+		
+		return new SurveyPage(webDriver);
+	}
+	public String getParkName() {
+		return webDriver.findElement(By.cssSelector("body > div.main-section > div > h1")).getText();
 	}
 }

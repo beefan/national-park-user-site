@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.techelevator.np.webapp.pageobjects.HomePage;
+import com.techelevator.np.webapp.pageobjects.ParkDetailPage;
+import com.techelevator.np.webapp.pageobjects.SurveyPage;
 
 
 public class NationalParkExplorerSeleniumIntegrationTest {
@@ -54,16 +56,31 @@ public class NationalParkExplorerSeleniumIntegrationTest {
 	}
 	
 	@Test 
-	public void survey_can_be_filled_out_and_submitted() {
-		String surveyResultsIndicator = homePage.clickSurveyNavButton()
+	public void survey_page_end_to_end_test() {
+		// Test Submit Survey 
+		SurveyPage surveyPage = homePage.clickSurveyNavButton()
 												.selectAPark()
 												.enterEmailAddress()
 												.selectAState()
 												.selectActivityLevel()
-												.submitSurvey()
-												.getSurveyResultsIndicator();
+												.submitSurvey();
 		
-		Assert.assertEquals("And the Survey Says..." , surveyResultsIndicator);
+		Assert.assertEquals("And the Survey Says..." , surveyPage.getSurveyResultsIndicator());
+		
+		// Test Park Detail Image Links are Correct
+		ParkDetailPage detailPage = surveyPage.clickParkImage();		   
+		Assert.assertEquals("detail", detailPage.getDetailPageIndicator());	
+		
+		// Test for Favorite Park Link is Correctly Displayed
+		surveyPage = detailPage.clickSurveyNavButton();
+		Assert.assertEquals("Glacier National Park", surveyPage.getUserFavoriteParkText());
+		
+		// Test Favorite Park Link is Correct
+		String parkName = surveyPage.clickUserFavoriteParkLink()
+				  					.getParkName();
+		Assert.assertEquals("Glacier National Park , Montana", parkName);
 	}
+	
+	
 	
 }

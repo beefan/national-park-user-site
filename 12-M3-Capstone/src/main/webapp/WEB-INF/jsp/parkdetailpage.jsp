@@ -19,76 +19,107 @@
 			</p>
 		</div>
 		<div id="dp-acreage">
-			<h4>Acreage:</h4>
+			<h4>Acreage</h4>
 			<p>
 				<c:out value="${park.acreage}" />
 			</p>
 		</div>
 		<div id="dp-elevation">
-			<h4>Elevation:</h4>
+			<h4>Elevation</h4>
 			<p>
 				<c:out value="${park.elevation}" />
 			</p>
 		</div>
 		<div id="dp-miles">
-			<h4>Miles Of Trail:</h4>
+			<h4>Miles Of Trail</h4>
 			<p>
 				<c:out value="${park.milesOfTrail}" />
 			</p>
 		</div>
 		<div id="dp-number-of-campsites">
-			<h4>Number Of Campsites:</h4>
+			<h4>Number Of Campsites</h4>
 			<p>
 				<c:out value="${park.numberOfCampsites}" />
 			</p>
 		</div>
 		<div id="dp-climate">
-			<h4>Climate:</h4>
+			<h4>Climate</h4>
 			<p>
 				<c:out value="${park.climate}" />
 			</p>
 		</div>
 		<div id="dp-year-founded">
-			<h4>Year Founded:</h4>
+			<h4>Year Founded</h4>
 			<p>
 				<c:out value="${park.yearFounded}" />
 			</p>
 		</div>
 		<div id="dp-visitor-count">
-			<h4>Annual Visitor Count:</h4>
+			<h4>Annual Visitor Count</h4>
 			<p>
 				<c:out value="${park.annualVisitorCount}" />
 			</p>
 		</div>
-		<div id = "inspiration">
-		<div id="dp-quote">
-			<h4>Inspirational Quote:</h4>
-			<p>
-				<c:out value="${park.inspirationalQuote}" />
-			</p>
-		</div>
-		<div id="dp-quote-author">
-			<h4>Quote Author:</h4>
-			<p>
-				<c:out value="${park.quoteAuthor}" />
-			</p>
-		</div>
+		<div id="inspiration">
+			<div id="dp-quote">
+				<h4>Inspirational Quote</h4>
+				<p>
+					<c:out value="${park.inspirationalQuote}" />
+				</p>
+			</div>
+			<div id="dp-quote-author">
+				<h4>Quote Author</h4>
+				<p>
+					<c:out value="${park.quoteAuthor}" />
+				</p>
+			</div>
 		</div>
 		<div id="dp-entry-fee">
-			<h4>Entry Fee: </h4>
+			<h4>Entry Fee</h4>
 			<p>
 				<c:out value=" $ ${park.entryFee}" />
 			</p>
 		</div>
 		<div id="dp-species">
-			<h4>Number of Species:</h4>
+			<h4>Number of Species</h4>
 			<p>
 				<c:out value=" ${park.numberOfSpecies}" />
 			</p>
 		</div>
 	</div>
 	<div class="five-day-forecast">
+		<div class="unit">
+			<c:url var="changeTempURL" value="/changeTemp">
+				<c:param name="unit" value="F" />
+				<c:param name="code" value="${param.code}" />
+			</c:url>
+
+			<c:choose>
+				<c:when test="${weatherUnit.equals(\"C\")}">
+					<p>
+						<span class="big-temp">C</span> / <a href="${changeTempURL}"><span
+							class="small-temp">F</span></a>
+					</p>
+				</c:when>
+				<c:otherwise>
+					<c:url var="changeTempURL" value="/changeTemp">
+						<c:param name="unit" value="C" />
+						<c:param name="code" value="${param.code}" />
+					</c:url>
+					<p>
+						<span class="big-temp">F</span> / <a href="${changeTempURL}"><span
+							class="small-temp">C</span></a>
+					</p>
+				</c:otherwise>
+			</c:choose>
+		</div>
 		<c:forEach var="forecast" items="${park.fiveDayForecast}">
+			<c:set var="high" value="${forecast.dailyHigh}" />
+			<c:set var="low" value="${forecast.dailyLow}" />
+			<c:if test="${weatherUnit.equals(\"C\")}">
+				<c:set var="high" value="${ (forecast.dailyHigh - 32) * 5/9.}" />
+				<c:set var="low" value="${ (forecast.dailyLow -32) * 5/9.}" />
+			</c:if>
 			<div class="forcast">
 				<c:choose>
 					<c:when test="${forecast.day == 1 }">
@@ -105,43 +136,15 @@
 				<img class="weather-logo"
 					src=" <c:url value = "/img/weather/${forecast.forecast}.png"/>" />
 				<div class="temps">
-					<c:set var="high" value="${forecast.dailyHigh}" />
-					<c:set var="low" value="${forecast.dailyLow}" />
-					<c:url var="changeTempURL" value="/changeTemp">
-						<c:param name="unit" value="F" />
-						<c:param name="code" value="${param.code}" />
-					</c:url>
-
-					<div class="unit">
-						<c:choose>
-							<c:when test="${weatherUnit.equals(\"C\")}">
-								<c:set var="high" value="${ (forecast.dailyHigh - 32) * 5/9.}" />
-								<c:set var="low" value="${ (forecast.dailyLow -32) * 5/9.}" />
-								<p>
-									<span class="big-temp">C</span> / <a href="${changeTempURL}"><span
-										class="small-temp">F</span></a>
-								</p>
-							</c:when>
-							<c:otherwise>
-								<c:url var="changeTempURL" value="/changeTemp">
-									<c:param name="unit" value="C" />
-									<c:param name="code" value="${param.code}" />
-								</c:url>
-								<p>
-									<span class="big-temp">F</span> / <a href="${changeTempURL}"><span
-										class="small-temp">C</span></a>
-								</p>
-							</c:otherwise>
-						</c:choose>
-					</div>
-					<p id="high">
-						High
-						<fmt:formatNumber value="${ high }" maxFractionDigits="2" />
-					</p>
 					<p id="low">
-						Low
+						Low:
 						<fmt:formatNumber value="${ low }" maxFractionDigits="2" />
 					</p>
+					<p id="high">
+						High:
+						<fmt:formatNumber value="${ high }" maxFractionDigits="2" />
+					</p>
+
 
 				</div>
 				<p class="tips">
@@ -153,6 +156,10 @@
 						<c:when test="${ totalRecs < 1 }">
 			No recommendations for today. Enjoy your trip! 
 			
+				
+				
+				
+				
 				</p>
 				</c:when>
 				<c:otherwise>

@@ -439,13 +439,14 @@ div.detail-page {
 .five-day-forecast{
 	grid-area: weather;
 	display: grid;
-	grid-template-rows: auto;
+	grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
 	grid-template-areas: 
 	"date date date date date"
 	"image image image image image"
 	"temps temps temps temps temps"
-	"tips tips tips tips tips";
-	grid-gap: 20px;
+	"tips tips tips tips tips"
+	". . . . convert";
+	grid-column-gap: 20px;
 	border: thick solid var(--neutral-green);
 	background: var(--light-green);
 	border-radius: 5px;
@@ -467,6 +468,9 @@ div.detail-page {
 
 .unit {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	grid-area: convert; 
+	text-align: right;
+	margin-right: 10px;
 }
 
 .unit a {
@@ -499,6 +503,19 @@ div.detail-page {
 	grid-area: tips;
 	font-style: italic;
 	color: var(--light);
+}
+.temps #high{
+	color:red;
+}
+.temps #low{
+	color:blue;
+}
+/* body > div.main-section > div > div.five-day-forecast > div:nth-child(2){
+	font-size: 1.2rem;
+} */
+body > div.main-section > div > div.five-day-forecast > div:nth-child(2) > img{
+	max-width: 150px;
+	height: 150px;
 }
 
 
