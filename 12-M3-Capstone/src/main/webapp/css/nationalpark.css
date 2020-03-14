@@ -258,7 +258,7 @@ footer {
 	border: medium solid var(--light-green);
 	border-radius: 3px;
 	box-shadow: 10px 10px 5px grey;
-	margin: 20px;
+	margin-bottom: 30px;
 }
 div.detail-page {
 	display: grid;
@@ -277,8 +277,8 @@ div.detail-page {
 	grid-template-columns: auto;
 	grid-template-areas:
 	"description description description"
-	"inspiration inspiration inspiration"
-	"author . ."
+	"inspiration inspiration ."
+	"author . . "
 	"acreage elevation miles"
 	"campsites climate year-founded"
 	"visitor entry-fee species";
@@ -295,6 +295,7 @@ div.detail-page {
 	background: var(--light-green);
 	border-radius: 5px;
 	color: var(--darkest-green);
+	text-align: center;
 	
 }
 #dp-acreage{
@@ -353,12 +354,17 @@ div.detail-page {
 	background: var(--light-green);
 	border-radius: 2%;
 	color: var(--darkest-green);
+	margin-top: 20px;
 	
+}
+.forcast{
+	margin: 10px;
 }
 .weather-logo{
 	grid-area: image;
 	max-width: 100px;
 	height: 100px;
+	margin-left: 30px;
 }
 
 .unit {
@@ -386,6 +392,7 @@ div.detail-page {
 
 #date{
 	grid-area: date;
+	text-align: center;
 }
 .temps {
 	grid-area: temps;

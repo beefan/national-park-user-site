@@ -13,7 +13,7 @@
 		src="<c:url value="/img/parks/${park.code.toLowerCase()}.jpg" />" />
 	<div class="dp-details">
 		<div id="dp-description">
-			<h4>Description:</h4>
+			<h4>Description</h4>
 			<p>
 				<c:out value="${park.description}" />
 			</p>
