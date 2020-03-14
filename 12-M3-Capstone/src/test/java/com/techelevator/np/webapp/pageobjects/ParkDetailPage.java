@@ -24,4 +24,19 @@ public class ParkDetailPage {
 	public String getParkName() {
 		return webDriver.findElement(By.cssSelector("body > div.main-section > div > h1")).getText();
 	}
+	public ParkDetailPage clickFocusTempUnit() {
+		webDriver.findElement(By.cssSelector("body > div.main-section > div > div.five-day-forecast > div.unit > p > a > span")).click();
+		return new ParkDetailPage(webDriver);
+	}
+	public double getFirstTemperature() {
+		return Double.parseDouble(webDriver.findElement(By.cssSelector("#low")).getText().substring(5));
+	}
+	public HomePage clickHomeNavButton() {
+		WebElement homeNav = webDriver.findElement(
+				By.cssSelector("body > div.header > nav > a:nth-child(1)"));
+		homeNav.click();
+		
+		return new HomePage(webDriver);
+	}
+	
 }

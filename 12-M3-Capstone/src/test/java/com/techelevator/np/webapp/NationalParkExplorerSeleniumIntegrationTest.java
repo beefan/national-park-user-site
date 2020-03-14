@@ -81,6 +81,38 @@ public class NationalParkExplorerSeleniumIntegrationTest {
 		Assert.assertEquals("Glacier National Park , Montana", parkName);
 	}
 	
+	@Test
+	public void click_celcius_changes_temperature_unit() {
+	ParkDetailPage detailPage =	homePage.clickParkImage();
+	double tempF = detailPage.getFirstTemperature();
+	detailPage = detailPage.clickFocusTempUnit();
+	double tempC = detailPage.getFirstTemperature();
+	Assert.assertEquals((tempF - 32) * 5 / 9.0, tempC, 1);
+	
+	}
+	
+	@Test
+	public void click_farenheit_changes_temperature_unit() {
+		ParkDetailPage detailPage =	homePage.clickParkImage();
+		double tempF = detailPage.getFirstTemperature();
+		detailPage = detailPage.clickFocusTempUnit();
+		detailPage = detailPage.clickFocusTempUnit();
+		double tempTest = detailPage.getFirstTemperature();
+		Assert.assertEquals(tempF, tempTest, 1);
+	}
+	
+	@Test
+	public void deatil_page_remembers_user_temp_unit() {
+		ParkDetailPage detailPage =	homePage.clickParkImage();
+		detailPage = detailPage.clickFocusTempUnit();
+		double temp = detailPage.getFirstTemperature();
+		double tempTest = detailPage.clickHomeNavButton()
+									.clickParkImage()
+									.getFirstTemperature();
+		Assert.assertEquals(temp, tempTest, 1);
+		
+	}
+	
 	
 	
 }
